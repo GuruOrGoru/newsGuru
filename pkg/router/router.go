@@ -15,7 +15,7 @@ func NewsRouter(app *models.NewsModel) http.Handler {
 	router.HandleFunc("POST /news", handler.PostNewsHandler(app))
 	router.HandleFunc("DELETE /news/{id}", handler.DeleteNewsHandler(app))
 
-	standard := alice.New(recoverPanic, logRequest, secureHeaders)
+	standard := alice.New(recoverPanic, logRequest, secureHeaders, enableCORS)
 	return standard.Then(router)
 
 }

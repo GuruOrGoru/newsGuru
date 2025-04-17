@@ -31,8 +31,12 @@ func GetNewsHandler(a *models.NewsModel) http.HandlerFunc {
 			http.Error(w, "Internal Server Error Occured", http.StatusInternalServerError)
 			return
 		}
-		for _, news := range news {
-			fmt.Fprintf(w, "%+v\n", news)
+		w.Header().Set("Content-Type", "application/json")
+
+		if err := json.NewEncoder(w).Encode(news); err != nil {
+			http.Error(w, "Error encoding JSON response", http.StatusInternalServerError)
+			logs.Error.Printf("Error encoding JSON: %v", err)
+			return
 		}
 	}
 }
