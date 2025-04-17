@@ -1,0 +1,28 @@
+# Binaries for programs and plugins
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Test binary, coverage reports
+*.test
+*.out
+
+# Dependency directories
+vendor/
+
+# Go build artifacts
+*.o
+*.a
+
+# IDE/editor-specific files
+.vscode/
+.idea/
+*.swp
+
+# Logs
+*.log
+
+# OS-specific files
+.DS_Store
+Thumbs.db
